@@ -114,15 +114,12 @@ class GA(object):
             new_fitness.append(fitness_value[i]/total_fitness)
     #将所有个体的适应度正则化
         self.cumsum(new_fitness)
-    #
-        ms=[]
+    
     #存活的种群
         population_length=pop_len=len(population)
     #求出种群长度
     #根据随机数确定哪几个能存活
- 
-        for i in range(pop_len):
-            ms.append(random.random())
+        ms=[random.random() for _ in range(pop_len)]
     # 产生种群个数的随机值
     # ms.sort()
     # 存活的种群排序
