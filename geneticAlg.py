@@ -119,10 +119,10 @@ class GA(object):
  
                cpoint=random.randint(0,len(population[0]))
            #在种群个数内随机生成单点交叉点
-               temporary1 = population[i][0:cpoint]
+               temporary1 = population[i, 0:cpoint]
  
-               population[i][0:cpoint]=population[i+1][0:cpoint]
-               population[i+1][0:cpoint]=temporary1
+               population[i, 0:cpoint]=population[i+1, 0:cpoint]
+               population[i+1, 0:cpoint]=temporary1
         # 第i个染色体和第i+1个染色体基因重组/交叉完成
     def mutation(self,population):
      # pm是概率阈值
