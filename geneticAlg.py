@@ -119,7 +119,7 @@ class GA(object):
  
                cpoint=random.randint(0,len(population[0]))
            #在种群个数内随机生成单点交叉点
-               temporary1 = population[i, 0:cpoint]
+               temporary1 = np.copy(population[i, 0:cpoint])
  
                population[i, 0:cpoint]=population[i+1, 0:cpoint]
                population[i+1, 0:cpoint]=temporary1
@@ -134,7 +134,7 @@ class GA(object):
              if(random.random()<self.pm):
                 mpoint=random.randint(0,py-1)
             #
-                population[i][mpoint] = abs(1 - population[i][mpoint])
+                population[i][mpoint] = 1 - population[i][mpoint]
  
 #transform the binary to decimalism
 # 将每一个染色体都转化成十进制 max_value,再筛去过大的值
@@ -203,5 +203,5 @@ if __name__ == '__main__':
    chromosome_length=20
    pc=0.6
    pm=0.01
-   ga=GA(population_size,chromosome_length,max_value,pc,pm, 30)
+   ga=GA(population_size,chromosome_length,max_value,pc,pm, 500)
    ga.main()
