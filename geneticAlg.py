@@ -36,7 +36,7 @@ class GA(object):
     def translation(self,population):
         
         #make binary2decimal weights
-        weights = (2 *np.ones((self.choromosome_length))) **np.arange((self.choromosome_length))
+        weights = (2 *np.ones((self.choromosome_length))) **np.arange((self.choromosome_length)) /(math.pow(2,self.choromosome_length)-1)
         temporary = population @weights.T
         
         #一个染色体编码完成，由一个二进制数编码为一个十进制数
@@ -51,8 +51,8 @@ class GA(object):
 # 目标函数相当于环境 对染色体进行筛选，这里是2*sin(x)+math.cos(x)
     def function(self,population):
         
-        temporary=self.max_value *self.translation(population) /(math.pow(2,self.choromosome_length)-1)
-        f = lambda x :2*x*np.sin(x)+np.cos(x)
+        temporary=self.max_value *self.translation(population)
+        f = lambda x :2*np.sin(x)+np.cos(x)
         function1 = f(temporary)
  
          #这里将sin(x)作为目标函数
