@@ -5,6 +5,7 @@ import math
 import matplotlib.pyplot as plt
 import time
 import numpy as np
+import geneticAlgOpt
 class GA(object):
 #初始化种群 生成chromosome_length大小的population_size个个体的种群
  
@@ -27,7 +28,6 @@ class GA(object):
  
             temporary = np.random.randint(0, 2, (self.choromosome_length))
             population.append(temporary)
-            print(temporary)
             #将染色体添加到种群中
         return np.array(population)
             # 将种群返回，种群是个二维数组，个体和染色体两维
@@ -159,7 +159,7 @@ class GA(object):
         return [bestindividual,bestfitness]
  
  
-    def plot(self, results):
+    def plot(self, results, Y2):
         X = []
         Y = []
  
@@ -167,7 +167,7 @@ class GA(object):
             X.append(i)
             Y.append(results[i][0])
  
-        plt.plot(X, Y)
+        plt.plot(X, Y, Y2)
         plt.show()
  
     def main(self):
@@ -193,8 +193,9 @@ class GA(object):
             self.mutation(population)
         results = results[1:]
         results.sort()
+        results2 = geneticAlgOpt.gaOpt()
         print(time.perf_counter()-start)
-        self.plot(results)
+        self.plot(results, results2)
  
 if __name__ == '__main__':
  

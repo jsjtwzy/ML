@@ -22,16 +22,15 @@ class TagetFunc():
         x = self.translation(p)
         return 2 *np.sin(x) +np.cos(x)
 
-
-taget = TagetFunc(20, max_value=5)
-chrom_len = taget.chrom_len
-func = taget.function
-# ndim can't be 1 ,so that crossover vill not be done
-ga = GA(func=func, n_dim=chrom_len, size_pop=40, max_iter=50, prob_mut=0.01, ub=1, lb=0)
-ga.run()
-best_x = np.array(ga.best_x >0.5).astype(int)
-print(best_x)
-his_y = np.array(ga.all_history_FitV)
-max_y = np.max(his_y,1)
-plot1 = plt.plot(max_y)
-plt.show()
+def gaOpt():
+    taget = TagetFunc(20, max_value=5)
+    chrom_len = taget.chrom_len
+    func = taget.function
+    # ndim can't be 1 ,so that crossover vill not be done
+    ga = GA(func=func, n_dim=chrom_len, size_pop=40, max_iter=50, prob_mut=0.01, ub=1, lb=0)
+    ga.run()
+    his_y = np.array(ga.all_history_FitV)
+    max_y = np.max(his_y,1)
+    #plot1 = plt.plot(max_y)
+    #plt.show()
+    return max_y
