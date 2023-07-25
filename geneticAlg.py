@@ -25,8 +25,9 @@ class GA(object):
         population=[]
         for _ in range(self.population_size):
  
-            temporary = np.random.randint(0, 1, (self.choromosome_length))
+            temporary = np.random.randint(0, 2, (self.choromosome_length))
             population.append(temporary)
+            print(temporary)
             #将染色体添加到种群中
         return np.array(population)
             # 将种群返回，种群是个二维数组，个体和染色体两维
@@ -199,9 +200,9 @@ if __name__ == '__main__':
  
  
    population_size=400
-   max_value=10
+   max_value=5
    chromosome_length=20
    pc=0.6
    pm=0.01
-   ga=GA(population_size,chromosome_length,max_value,pc,pm, 500)
+   ga=GA(population_size,chromosome_length,max_value,pc,pm, 50)
    ga.main()

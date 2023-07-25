@@ -23,7 +23,7 @@ class TagetFunc():
         return 2 *np.sin(x) +np.cos(x)
 
 
-taget = TagetFunc(20, max_value=10)
+taget = TagetFunc(20, max_value=5)
 chrom_len = taget.chrom_len
 func = taget.function
 # ndim can't be 1 ,so that crossover vill not be done
