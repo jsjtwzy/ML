@@ -20,6 +20,7 @@ def function(p):
 
 
 chromosome_length=20
+# ndim can't be 1 ,so that crossover vill not be done
 ga = GA(func=function, n_dim=chromosome_length, size_pop=40, max_iter=50, prob_mut=0.01, ub=1, lb=0)
 ga.run()
 his_y = np.array(ga.all_history_FitV)
