@@ -31,6 +31,10 @@ def gaOpt():
     ga.run()
     his_y = np.array(ga.all_history_FitV)
     max_y = np.max(his_y,1)
-    #plot1 = plt.plot(max_y)
-    #plt.show()
+    
     return max_y
+    
+if __name__ == '__main__':
+    max_y = gaOpt()
+    plot1 = plt.plot(max_y)
+    plt.show()
