@@ -13,7 +13,7 @@ class TagetFunc():
         
         #make binary2decimal weights
         weights = self.max_value *(2 *np.ones((len(p)))) **np.arange((len(p))) /(math.pow(2,len(p))-1)
-        temporary = np.array(p >0.5).astype(int) @weights.T
+        temporary = (p >0.5).astype(int) @weights.T
         
         #一个染色体编码完成，由一个二进制数编码为一个十进制数
         return temporary
