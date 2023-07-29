@@ -20,6 +20,9 @@ class TagetFunc():
 
     def function(self, p):
         x = self.translation(p)
+        result = -2 *np.sin(x) -np.cos(x)
+        result = result *int(result >0)
+        print(result)
         return 2 *np.sin(x) +np.cos(x)
 
 def gaOpt():
