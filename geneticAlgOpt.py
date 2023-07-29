@@ -21,10 +21,10 @@ class TagetFunc():
     def function(self, p):
         x = self.translation(p)
         result = 2 *np.sin(x) +np.cos(x)
-        return result
+        return -result
 
 def gaOpt():
-    target = TagetFunc(20, max_value=5)
+    target = TagetFunc(20, max_value=2)
     chrom_len = target.chrom_len
     func = target.function
     # ndim can't be 1 ,so that crossover vill not be done
