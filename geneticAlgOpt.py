@@ -20,21 +20,20 @@ class TagetFunc():
 
     def function(self, p):
         x = self.translation(p)
-        result = -2 *np.sin(x) -np.cos(x)
-        result = result *int(result >0)
-        print(result)
-        return 2 *np.sin(x) +np.cos(x)
+        result = 2 *np.sin(x) +np.cos(x)
+        return -result
 
 def gaOpt():
-    taget = TagetFunc(20, max_value=5)
-    chrom_len = taget.chrom_len
-    func = taget.function
+    target = TagetFunc(20, max_value=2)
+    chrom_len = target.chrom_len
+    func = target.function
     # ndim can't be 1 ,so that crossover vill not be done
     ga = GA(func=func, n_dim=chrom_len, size_pop=40, max_iter=50, prob_mut=0.01, ub=1, lb=0)
     ga.run()
     his_y = np.array(ga.all_history_FitV)
     max_y = np.max(his_y,1)
-    print(ga.best_x)
+    best_x = target.translation(np.array(ga.best_x))
+    print(best_x)
     
     return max_y
     

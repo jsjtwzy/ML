@@ -201,7 +201,7 @@ if __name__ == '__main__':
  
  
    population_size=400
-   max_value=5
+   max_value=2
    chromosome_length=20
    pc=0.6
    pm=0.01
