@@ -34,6 +34,7 @@ def gaOpt():
     ga.run()
     his_y = np.array(ga.all_history_FitV)
     max_y = np.max(his_y,1)
+    print(ga.best_x)
     
     return max_y
     
